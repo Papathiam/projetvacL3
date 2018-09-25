@@ -1,8 +1,28 @@
-{% extends 'base.html' %} {% block body %}
+ {% extends 'base.html' %} {% block body %}
+<div class="container">
 
-<h1>La liste des articles</h1>
-{% for articles in articles %}
-<h2>{{ articles.titre }}</h2>
-<p>{{ articles.body }}</p>
-<<img src="{{ articles.image.url }}" alt="">
-    {% endfor %} {% endblock %}
+    <!--p>Bonjour les amies </p-->
+    {% if user.is_authenticated %}
+    <h2> username :{{ user.username }}</h2>
+    {% endif %} {% for articles in articles %}
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ articles.titre }}</h3>
+
+                    <img class="card-img-top" src="{{ articles.image.url }}" alt="Card image cap">
+                    <p class="card-text">{{ articles.body }}</p>
+                    <a href="#" class="btn btn-primary">Lire la suite</a>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                </div>
+            </div>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

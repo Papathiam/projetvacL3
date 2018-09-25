@@ -17,13 +17,14 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand active" href="{% url 'index' %}">TDSISecurity</a>
+                <a class="navbar-brand active" href="{% url 'show' %}">TDSISecurity</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'index' %}">Accueil</a></li>
+                <li class="active"><a href="{% url 'show' %}">Accueil</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'ScanReseau' %}">Scan Reseau</a></li>
                 <li><a href="{% url 'ScanPort' %}">Scan Port</a></li>
+                <li><a href="{% url 'ScanSystem' %}">Scan System</a></li>
                 <li><a href="{% url 'Apropos' %}">A propos</a></li>
                 <li style="float: right;"><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Deconnexion</a></li>
                 {% else %}
